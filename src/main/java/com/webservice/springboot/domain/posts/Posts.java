@@ -1,5 +1,6 @@
 package com.webservice.springboot.domain.posts;
 
+import com.webservice.springboot.domain.BaseTimeEntity;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -14,14 +15,14 @@ import javax.persistence.*;
  * @Column 을 굳이 선언하지 않아도 해당 클래스의 필드는 모두 DB 테이블의 칼럼이 된다.
  * 그러나, 디폴트 값 외에 추가로 변경이 필요한 옵션이 있는 경우, 선언이 필요하다.
  *
- * Entity 클래스에서는 절대 Setter 메소드를 만들지 않는다. 왜냐하면 해당 클래스의 인스턴스 값들이 언제 어디서 변해야 하는지 코드상으로 명확하게
- * 구분할 수 없기 때문이다.
+ * Entity 클래스에서는 절대 Setter 메소드를 만들지 않는다.
+ * 왜냐하면 해당 클래스의 인스턴스 값들이 언제 어디서 변해야 하는지 코드상으로 명확하게 구분할 수 없기 때문이다.
  */
 
 @Getter
 @NoArgsConstructor // @Entity 클래스의 제약사항 (default 생성자 반드시 필요)
 @Entity // 주요 어노테이션을 클래스에 가깝게 두자! (위의 어노테이션들은 롬복 어노테이션이므로, 필수는 아니다)
-public class Posts {
+public class Posts extends BaseTimeEntity {
 
     @Id // 해당 테이블의 PK 필드를 나타낸다.
     @GeneratedValue(strategy = GenerationType.IDENTITY) // PK의 생성 규칙을 나타낸다.
@@ -46,5 +47,10 @@ public class Posts {
         this.title = title;
         this.content = content;
         this.author = author;
+    }
+
+    public void update(String title, String content) {
+        this.title = title;
+        this.content = content;
     }
 }

@@ -5,7 +5,12 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
 
 /**
  * Posts 클래스는 실제 DB의 테이블과 매칭될 클래스이며, 보통 Entity 클래스라고도 한다.

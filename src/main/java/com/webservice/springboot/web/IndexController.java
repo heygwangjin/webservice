@@ -1,5 +1,6 @@
 package com.webservice.springboot.web;
 
+import com.webservice.springboot.config.auth.LoginUser;
 import com.webservice.springboot.config.auth.dto.SessionUser;
 import com.webservice.springboot.service.posts.PostsService;
 import com.webservice.springboot.web.dto.PostsResponseDto;
@@ -19,11 +20,8 @@ public class IndexController {
     private final HttpSession httpSession;
 
     @GetMapping("/")
-    public String index(Model model) {
+    public String index(Model model, @LoginUser SessionUser user) {
         model.addAttribute("posts", postsService.findAllDesc());
-
-        // CustomOAuth2UserService에서 로그인 성공 시 세션에 SessionUser를 저장하도록 구성 했으므로, httpSession을 통해서 가져올 수 있다.
-        SessionUser user = (SessionUser) httpSession.getAttribute("user");
 
         if (user != null) {
             model.addAttribute("userName", user.getName());

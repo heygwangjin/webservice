@@ -18,7 +18,7 @@ script: "./gradlew clean build"
 
 # deploy 명령어가 실행되기 전에 수행
 before_deploy:
-  - zip -r webservice
+  - zip -r webservice *
   - mkdir -p deploy
   - mv webservice.zip deploy/webservice.zip
 
@@ -33,6 +33,8 @@ deploy:
     acl: private # zip 파일 접근을 private으로
     local_dir: deploy # before_deploy에서 생성한 디렉토리로써, 해당 위치의 파일들만 S3로 전송
     wait-until-deployed: true
+    on:
+      all_branches: true # 깃에서 디폴트로 정해진 branch가 master로 설정되어 있는데, 해당 라인이 있으면 다른 브랜치에도 권한이 허용된다.
 
 # CI 실행 완료 시 메일로 알람
 notifications:

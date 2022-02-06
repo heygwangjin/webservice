@@ -1,0 +1,7 @@
+# AWS의 CodeDeploy 설정 파일
+version: 0.0 # CodeDeploy 버전을 의미
+os: linux
+files:
+  - source: / # CodeDeploy에서 전달해 준 파일 중 destination으로 이동시킬 대상을 지정 (/는 전체 파일을 의미)
+    destination: /home/ec2-user/app/step2/zip/ # source에서 지정된 파일을 받을 위치로, Jar를 실행하는 등은 destination에서 옮긴 파일들로 진행
+    overwrite: yes # 기존에 파일들이 있으면 덮어쓸지를 결정

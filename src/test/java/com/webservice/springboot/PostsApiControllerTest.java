@@ -1,4 +1,4 @@
-package com.webservice.springboot.web;
+package com.webservice.springboot;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.webservice.springboot.domain.posts.Posts;

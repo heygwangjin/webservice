@@ -1,7 +1,5 @@
-package com.webservice.springboot.web.domain.posts;
+package com.webservice.springboot.domain.posts;
 
-import com.webservice.springboot.domain.posts.Posts;
-import com.webservice.springboot.domain.posts.PostsRepository;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;

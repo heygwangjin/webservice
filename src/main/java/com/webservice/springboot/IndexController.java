@@ -1,4 +1,4 @@
-package com.webservice.springboot.web;
+package com.webservice.springboot;
 
 import com.webservice.springboot.config.auth.LoginUser;
 import com.webservice.springboot.config.auth.dto.SessionUser;
